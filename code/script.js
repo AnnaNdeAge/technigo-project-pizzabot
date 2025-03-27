@@ -31,7 +31,8 @@ alert("You have chosen " + foodMenu())
 //alert("You have chosen" + foodType() + "!")
 
 // Step 3 - Subtype choice
-function foodSubtypeChoice() {
+var foodSubtypeChoice = menuSubtypeChoice()
+function menuSubtypeChoice() {
   if (foodChoice === 1) {
     let pizzaType = parseInt(prompt("What type of Pizza would you like to eat? \nEnter a number: \n1 - Margherita \n2 - Capriciosa \n3 - Bufala"))
     if (pizzaType === 1) {
@@ -55,9 +56,9 @@ function foodSubtypeChoice() {
       alert("Please enter a valid number!")
     }
   } else if (foodChoice === 3) {
-    let saladType = parseInt(prompt("What type of Salad would you like to eat? \nEnter a number: \n1 - Ceasar \n2 - Tuna \n3 - Caprese"))
+    let saladType = parseInt(prompt("What type of Salad would you like to eat? \nEnter a number: \n1 - Caesar \n2 - Tuna \n3 - Caprese"))
     if (saladType === 1) {
-      return "Ceasar";
+      return "Caesar";
     } else if (saladType === 2) {
       return "Tuna";
     } else if (saladType === 3) {
@@ -68,14 +69,26 @@ function foodSubtypeChoice() {
   }
 }
 
-alert("You have chosen" + foodSubtypeChoice())
+
+alert("You have chosen " + foodSubtypeChoice)
 // Step 4 - Age
-let age = parseInt(prompt("Is this food for an adult or a child? Please type your age:"))
-if (age > 10) {
-  alert("One adult sized " + foodSubtypeChoice())
+var age = ageReply()
+function ageReply() {
+  parseInt(prompt("Is this food for an adult or a child? Please type your age:"))
 }
-else {
-  alert("One child sized " + foodSubtypeChoice())
+
+var ageNumber = parseInt(age)
+alert("Your age:" + toString(age))
+
+
+var orderConfirmation = orderReply()
+function orderReply() {
+  if (age > 12) {
+    parseInt(prompt("One adult sized " + foodSubtypeChoice + ". " + "That will be 15 euro. Are you sure you want to order this? Enter a number to confirm. \n1 - Yes \n2 - No"))
+  }
+  else if (age <= 12) {
+    parseInt(prompt("One child sized " + foodSubtypeChoice + ". " + "That will be 10 euro. Are you sure you want to order this? Enter a number to confirm. \n1 - Yes \n2 - No"))
+  }
 }
 
 
